@@ -1,0 +1,147 @@
+{
+  "timestamp_utc": "2026-10-15T12:34:04+00:00",
+  "platform": "Linux-5.15.0-60-generic-x86_64-with-glibc2.35",
+  "baseline_process_memory_mb": -1.0,
+  "prover": {
+    "name": "EZKL",
+    "domain": "integer",
+    "version": "23.0.5",
+    "commit": "unspecified",
+    "version_cmd": "/usr/bin/python /640003/e2/code/calibration/ezkl_py.py --version"
+  },
+  "hardware": {
+    "cpu": "Intel(R) Xeon(R) Platinum 8480+",
+    "cpu_count": 224,
+    "system_memory_total_mb": 2063849.3,
+    "gpu": "NVIDIA H20",
+    "driver_version": "550.144.03",
+    "cuda_version": "12.4",
+    "cudnn_version": "90100",
+    "python": "3.12.9",
+    "torch": "2.5.1+cu124",
+    "numpy": "2.5.4"
+  },
+  "app_env_table": {
+    "GPU": "NVIDIA H20",
+    "System memory": "2015.5 GiB (container-visible)",
+    "Driver / CUDA / cuDNN": "550.144.03 / 12.4 / 90100",
+    "Python / PyTorch / NumPy": "3.12.9 / 2.5.1+cu124 / 2.5.4",
+    "Proof system, version, commit": "EZKL 23.0.5"
+  },
+  "app_env_missing": [],
+  "notes": [
+    "预热到热稳态是为了**几次运行之间可比**（H20 按持续负载供给，不是消费级卡降频）",
+    "所有内存数字为**增量**：驱动 + CUDA + Python 常驻是沉没成本，不计入",
+    "证明时间的口径是**子进程峰值 RSS**：EZKL 的 prove 是独立进程，主进程的 WorkingSet 量不到它",
+    "训练与证明须用任务队列串行化，避免 OOM 被误读为电路不可行"
+  ],
+  "ezkl_flag_check": {
+    "ezkl_argv": [
+      "/usr/bin/python",
+      "/640003/e2/code/calibration/ezkl_py.py"
+    ],
+    "binary": {
+      "argv0": "/usr/bin/python",
+      "on_path": "/usr/bin/python",
+      "kind": "present",
+      "answered": true,
+      "probes_timed_out": 0
+    },
+    "version": "23.0.5",
+    "ok": true,
+    "resolved": {
+      "gen-settings": [
+        "gen-settings",
+        "--model",
+        "{onnx}",
+        "--output",
+        "{settings}"
+      ],
+      "calibrate-settings": [
+        "calibrate-settings",
+        "--model",
+        "{onnx}",
+        "--data",
+        "{input}",
+        "--settings",
+        "{settings}",
+        "--target",
+        "resources"
+      ],
+      "compile-circuit": [
+        "compile-circuit",
+        "--model",
+        "{onnx}",
+        "--settings-path",
+        "{settings}",
+        "--compiled-circuit",
+        "{compiled}"
+      ],
+      "get-srs": [
+        "get-srs",
+        "--settings-path",
+        "{settings}",
+        "--srs-path",
+        "{srs}"
+      ],
+      "setup": [
+        "setup",
+        "--model",
+        "{compiled}",
+        "--vk-path",
+        "{vk}",
+        "--pk-path",
+        "{pk}",
+        "--srs-path",
+        "{srs}"
+      ],
+      "gen-witness": [
+        "gen-witness",
+        "--data",
+        "{input}",
+        "--model",
+        "{compiled}",
+        "--output",
+        "{witness}"
+      ],
+      "prove": [
+        "prove",
+        "--witness",
+        "{witness}",
+        "--model",
+        "{compiled}",
+        "--pk-path",
+        "{pk}",
+        "--proof-path",
+        "{proof}",
+        "--srs-path",
+        "{srs}"
+      ],
+      "verify": [
+        "verify",
+        "--proof-path",
+        "{proof}",
+        "--settings-path",
+        "{settings}",
+        "--vk-path",
+        "{vk}",
+        "--srs-path",
+        "{srs}"
+      ]
+    },
+    "errors": [],
+    "help_available": {
+      "gen-settings": true,
+      "calibrate-settings": true,
+      "compile-circuit": true,
+      "compile-model": false,
+      "get-srs": true,
+      "gen-params": false,
+      "setup": true,
+      "gen-witness": true,
+      "prove": true,
+      "verify": true
+    }
+  },
+  "source_tag": "measured"
+}

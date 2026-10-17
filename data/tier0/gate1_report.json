@@ -1,0 +1,53 @@
+{
+  "engine": {
+    "seed": 20261001,
+    "m": 16,
+    "order": "row",
+    "n_clients": 20,
+    "pool_size": 2000,
+    "subset": [
+      1834,
+      1611,
+      1188,
+      1109,
+      775,
+      1355,
+      976,
+      119,
+      711,
+      423,
+      1453,
+      1977,
+      974,
+      1326,
+      819,
+      1313
+    ],
+    "digest": "85734ff2f8ef40f000c510b226474d4e30ccab27ebff3846c7f59edc91956f57"
+  },
+  "conformance": {
+    "checks": [
+      {
+        "name": "C1 确定性（同输入两次执行）",
+        "passed": true,
+        "detail": "digest_a=85734ff2f8ef40f0… digest_b=85734ff2f8ef40f0… 一致"
+      },
+      {
+        "name": "C2 归约顺序无关（row / col / chunk）",
+        "passed": true,
+        "detail": "row=85734ff2f8ef… col=85734ff2f8ef… chunk=85734ff2f8ef…"
+      },
+      {
+        "name": "C3 环境无关（子进程 + 环境变量扰动）",
+        "passed": true,
+        "detail": "base=85734ff2f8ef… | PYTHONHASHSEED=1→85734ff2f8ef… PYTHONHASHSEED=999→85734ff2f8ef… LC_ALL=C→85734ff2f8ef…"
+      },
+      {
+        "name": "C4 浮点对照（应有差异，作为负面证据）",
+        "passed": true,
+        "detail": "16/16 个样本在换序后结果不同 （100%），最大绝对偏差 4.657e-10"
+      }
+    ],
+    "gate1": "PASS"
+  }
+}

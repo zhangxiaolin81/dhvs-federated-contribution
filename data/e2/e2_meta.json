@@ -1,0 +1,83 @@
+{
+  "data": {
+    "dataset": "synthetic",
+    "num_clients": 5,
+    "client_sizes": [
+      400,
+      400,
+      400,
+      400,
+      400
+    ],
+    "client_size_min": 400,
+    "client_size_max": 400,
+    "class_counts": [
+      395,
+      408,
+      384,
+      413,
+      400
+    ],
+    "pool_size": 300,
+    "heldout_size": 300,
+    "input_shape": [
+      128
+    ],
+    "num_classes": 5,
+    "pool_m": 32,
+    "attack_steps": 20,
+    "partition": "iid",
+    "alpha": 0.5,
+    "client_size_median": 400
+  },
+  "engine": {
+    "num_clients": 5,
+    "client_index": 0,
+    "local_steps": 20,
+    "local_lr": 0.05,
+    "pretrain_steps": 200,
+    "pretrain_lr": 0.05,
+    "pretrain_batch": 128,
+    "rounds": 6,
+    "subset_size": 32,
+    "batch_size": 64,
+    "device": "cpu",
+    "evolve_global": false,
+    "eval_every": 1
+  },
+  "attack": {
+    "steps": 20,
+    "lr": 0.05,
+    "batch_size": 64,
+    "flip_frac": 0.3,
+    "backdoor_frac": 0.2,
+    "backdoor_target": 0,
+    "trigger_size": 4,
+    "trigger_strength": 1.0
+  },
+  "seeds": [
+    0
+  ],
+  "arch": "mlp2",
+  "device": "cpu",
+  "params": 8581,
+  "convergence": {
+    "curve": [
+      -1.5052833557128906,
+      -0.5947086811065674,
+      -0.5587120652198792,
+      -0.5606760382652283,
+      -0.5601610541343689,
+      -0.5583667159080505,
+      -0.5638983845710754,
+      -0.5579535365104675,
+      -0.5592830181121826,
+      -0.5631181597709656,
+      -0.5602006912231445
+    ],
+    "total_rise": 0.9450826644897461,
+    "late_delta": -0.0009176731109619141,
+    "state": "flat",
+    "flat": true
+  }
+}

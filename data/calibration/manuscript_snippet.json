@@ -1,0 +1,519 @@
+{
+  "generated_utc": "2026-10-15T12:34:04+00:00",
+  "source": "measured",
+  "place_1_app_env": {
+    "table": {
+      "GPU": "NVIDIA H20",
+      "System memory": "2015.5 GiB (container-visible)",
+      "Driver / CUDA / cuDNN": "550.144.03 / 12.4 / 90100",
+      "Python / PyTorch / NumPy": "3.12.9 / 2.5.1+cu124 / 2.5.4",
+      "Proof system, version, commit": "EZKL 23.0.5"
+    },
+    "still_missing": []
+  },
+  "place_2_app_cost": [
+    {
+      "model": "LogReg 784-10",
+      "m": 32,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 1.3149779150262475,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 405.25390625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LogReg 784-10",
+      "m": 32,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 4,
+      "prove_seconds": 1.3357121562585235,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 396.09375,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LogReg 784-10",
+      "m": 64,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 1.389486369676888,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 402.6875,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LogReg 784-10",
+      "m": 64,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 8,
+      "prove_seconds": 1.3536310913041234,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 401.23828125,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LogReg 784-10",
+      "m": 128,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 1.4008555309846997,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 407.82421875,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LogReg 784-10",
+      "m": 128,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 16,
+      "prove_seconds": 1.4143420811742544,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 399.62890625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 32,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 2.6853238474577665,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 800.50390625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 32,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 4,
+      "prove_seconds": 2.7736461982131004,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 798.6640625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 64,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 2.8167029907926917,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 791.16015625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 64,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 8,
+      "prove_seconds": 2.697792395018041,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 794.44140625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 128,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 2.747964883223176,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 788.453125,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 128,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 16,
+      "prove_seconds": 2.757282699458301,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 785.6640625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 32,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 23.26354471873492,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 5312.98828125,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 32,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 4,
+      "prove_seconds": 23.13019667007029,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 5272.40625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 64,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 24.1181835308671,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 5347.2265625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 64,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 8,
+      "prove_seconds": 22.411012759432197,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 5400.48828125,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 128,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 20.721396568231285,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 5309.078125,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 128,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 16,
+      "prove_seconds": 21.523933483287692,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 5259.19140625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "m": 32,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 74.73514830227941,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 20500.62890625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "m": 32,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 4,
+      "prove_seconds": 76.64058692008257,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 20499.4921875,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "m": 64,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 77.7498845923692,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 20501.67578125,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "m": 64,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 8,
+      "prove_seconds": 75.28177037462592,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 19980.34765625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "m": 128,
+      "s": null,
+      "granularity": "integral",
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 1,
+      "prove_seconds": 76.74349159095436,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 20248.69140625,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "m": 128,
+      "s": 8,
+      "granularity": "s=8",
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "blocks": 16,
+      "prove_seconds": 74.14248052425683,
+      "peak_vram_increment_mb": 0.0,
+      "peak_ram_increment_mb": 20493.7421875,
+      "ok": true,
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS"
+    }
+  ],
+  "place_3_m_star_weights": {
+    "integral/seconds": {
+      "label": "证明时间",
+      "unit": "s",
+      "a": 5.603193261923187e-05,
+      "b": 0.9741108639832757,
+      "r2": 0.998485746676995,
+      "b_ci95": [
+        0.9473837598174949,
+        1.0008379681490567
+      ],
+      "n": 12
+    },
+    "integral/ram_mb": {
+      "label": "峰值 RAM 增量",
+      "unit": "MB",
+      "a": 0.02382010303750527,
+      "b": 0.93741829759809,
+      "r2": 0.9998427307338931,
+      "b_ci95": [
+        0.9291349726982958,
+        0.9457016224978843
+      ],
+      "n": 12
+    },
+    "integral/vram_mb": {
+      "label": "峰值 VRAM 增量",
+      "unit": "MB",
+      "n": 0,
+      "insufficient": true
+    },
+    "s=8/seconds": {
+      "label": "证明时间",
+      "unit": "s",
+      "a": 5.813861655451796e-05,
+      "b": 0.970494437508496,
+      "r2": 0.998914429139466,
+      "b_ci95": [
+        0.9479534373317288,
+        0.9930354376852631
+      ],
+      "n": 12
+    },
+    "s=8/ram_mb": {
+      "label": "峰值 RAM 增量",
+      "unit": "MB",
+      "a": 0.023208233056238793,
+      "b": 0.9390629632451423,
+      "r2": 0.9997940070810977,
+      "b_ci95": [
+        0.9295660869728408,
+        0.9485598395174437
+      ],
+      "n": 12
+    },
+    "s=8/vram_mb": {
+      "label": "峰值 VRAM 增量",
+      "unit": "MB",
+      "n": 0,
+      "insufficient": true
+    }
+  },
+  "place_4_tab_blocking": [
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 64,
+      "s": null,
+      "budget_model_gb": 9.0,
+      "measured_gb": 0.77,
+      "unmeasurable_reason": null,
+      "label": "measurement",
+      "delta_pct": -91.4
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "m": 64,
+      "s": 8,
+      "budget_model_gb": 2.4,
+      "measured_gb": 0.78,
+      "unmeasurable_reason": null,
+      "label": "measurement",
+      "delta_pct": -67.5
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 64,
+      "s": null,
+      "budget_model_gb": 26.4,
+      "measured_gb": 5.22,
+      "unmeasurable_reason": null,
+      "label": "measurement",
+      "delta_pct": -80.2
+    },
+    {
+      "model": "LeNet (32x32)",
+      "m": 64,
+      "s": 8,
+      "budget_model_gb": 4.6,
+      "measured_gb": 5.27,
+      "unmeasurable_reason": null,
+      "label": "measurement",
+      "delta_pct": 14.6
+    },
+    {
+      "model": "SmallCNN",
+      "m": 64,
+      "s": null,
+      "budget_model_gb": 368.1,
+      "measured_gb": null,
+      "unmeasurable_reason": "无对应架构/ONNX（刻意不造）且有预算模型 368.1 GB 越界 ⇒ 只能由实测内存拟合外推（derive_memory_crossover）",
+      "label": "not_measurable",
+      "delta_pct": null
+    },
+    {
+      "model": "SmallCNN",
+      "m": 64,
+      "s": 8,
+      "budget_model_gb": 47.3,
+      "measured_gb": null,
+      "unmeasurable_reason": "同上：无对应 ONNX ⇒ 只能外推",
+      "label": "not_measurable",
+      "delta_pct": null
+    },
+    {
+      "model": "ResNet-18",
+      "m": 64,
+      "s": null,
+      "budget_model_gb": null,
+      "measured_gb": null,
+      "unmeasurable_reason": "预算 >9000 GB，越界；稿件把它路由到 Tier 2，不进证明流水线",
+      "label": "not_measurable",
+      "delta_pct": null
+    }
+  ],
+  "place_4_derived_boundary": {
+    "integral": {
+      "available": true,
+      "limit_gb": 96.0,
+      "fitted_from": "ram_mb",
+      "n_points": 12,
+      "a": 0.02382010303750527,
+      "b": 0.93741829759809,
+      "r2": 0.9998427307338931,
+      "constraints_at_limit": 11409968,
+      "constraints_at_limit_ci95": [
+        13188663,
+        9896240
+      ],
+      "note": "点估计由 b 给出；区间由 b 的 95% CI 两端各算一次。区间很宽时只能当量级用。"
+    },
+    "s=8": {
+      "available": true,
+      "limit_gb": 96.0,
+      "fitted_from": "ram_mb",
+      "n_points": 12,
+      "a": 0.023208233056238793,
+      "b": 0.9390629632451423,
+      "r2": 0.9997940070810977,
+      "constraints_at_limit": 11401429,
+      "constraints_at_limit_ci95": [
+        13460353,
+        9689599
+      ],
+      "note": "点估计由 b 给出；区间由 b 的 95% CI 两端各算一次。区间很宽时只能当量级用。"
+    }
+  },
+  "warning": "`tab:blocking` 在稿件里**没有 \\TODO 标记**；只改附录不改它，正文与附录会不一致。SmallCNN 那一行没有架构定义 ⇒ 它的值只能来自 place_4_derived_boundary 的外推，不能来自一个凭空指定的模型。"
+}

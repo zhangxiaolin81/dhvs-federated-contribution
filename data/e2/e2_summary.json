@@ -1,0 +1,102 @@
+{
+  "public|vso": {
+    "mean_manipulation": 0.4407240351041158,
+    "sd_manipulation": 0.0,
+    "mean_pool_gain": -0.04674273729324341,
+    "sd_pool_gain": 0.0,
+    "mean_heldout_gain": -0.131810853878657,
+    "sd_heldout_gain": 0.0,
+    "alignment_gap": 0.4874667723973592,
+    "noise_floor": 0.011269988202814957,
+    "curve": [
+      0.4462507963180542,
+      0.4343056082725525,
+      0.4603802263736725,
+      0.42389729619026184,
+      0.44283345341682434,
+      0.43667683005332947
+    ],
+    "early_mean": 0.44027820229530334,
+    "late_mean": 0.4397551417350769,
+    "persists_late": true,
+    "trend": -0.0005230605602264404,
+    "sees_current_round_share": 1.0,
+    "honest_heldout_acc": 0.8766666666666666,
+    "attacker_heldout_acc": 0.8727777777777778
+  },
+  "fixed_hidden|vso": {
+    "mean_manipulation": 0.3732924908399582,
+    "sd_manipulation": 0.0,
+    "mean_pool_gain": -0.043871402740478516,
+    "sd_pool_gain": 0.0,
+    "mean_heldout_gain": -0.11930157740910848,
+    "sd_heldout_gain": 0.0,
+    "alignment_gap": 0.4171638935804367,
+    "noise_floor": 0.16750948912923605,
+    "curve": [
+      0.0,
+      0.4495960474014282,
+      0.41990816593170166,
+      0.4483543038368225,
+      0.45842742919921875,
+      0.463468998670578
+    ],
+    "early_mean": 0.2247980237007141,
+    "late_mean": 0.4609482139348984,
+    "persists_late": true,
+    "trend": 0.23615019023418427,
+    "sees_current_round_share": 0.8333333333333334,
+    "honest_heldout_acc": 0.8766666666666666,
+    "attacker_heldout_acc": 0.8722222222222222
+  },
+  "public_redrawn|vso": {
+    "mean_manipulation": 0.3741356705625852,
+    "sd_manipulation": 0.0,
+    "mean_pool_gain": -0.017779290676116943,
+    "sd_pool_gain": 0.0,
+    "mean_heldout_gain": -0.05094183484713236,
+    "sd_heldout_gain": 0.0,
+    "alignment_gap": 0.3919149612387021,
+    "noise_floor": 0.09664014237145507,
+    "curve": [
+      0.42277440428733826,
+      0.47126826643943787,
+      0.27024050056934357,
+      0.21645298600196838,
+      0.46263161301612854,
+      0.40144625306129456
+    ],
+    "early_mean": 0.44702133536338806,
+    "late_mean": 0.43203893303871155,
+    "persists_late": true,
+    "trend": -0.014982402324676514,
+    "sees_current_round_share": 1.0,
+    "honest_heldout_acc": 0.8766666666666666,
+    "attacker_heldout_acc": 0.8766666666666666
+  },
+  "dhvs|vso": {
+    "mean_manipulation": -0.013927315672238668,
+    "sd_manipulation": 0.0,
+    "mean_pool_gain": -0.016194363435109455,
+    "sd_pool_gain": 0.0,
+    "mean_heldout_gain": -0.036617656548817955,
+    "sd_heldout_gain": 0.0,
+    "alignment_gap": 0.002267047762870787,
+    "noise_floor": 0.09484644220362627,
+    "curve": [
+      0.0,
+      -0.04880976676940918,
+      -0.059421539306640625,
+      0.06284293532371521,
+      -0.16833198070526123,
+      0.13015645742416382
+    ],
+    "early_mean": -0.02440488338470459,
+    "late_mean": -0.019087761640548706,
+    "persists_late": false,
+    "trend": 0.005317121744155884,
+    "sees_current_round_share": 0.0,
+    "honest_heldout_acc": 0.8766666666666666,
+    "attacker_heldout_acc": 0.8766666666666666
+  }
+}

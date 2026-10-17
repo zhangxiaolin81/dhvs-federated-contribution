@@ -1,0 +1,833 @@
+{
+  "environment": {
+    "timestamp_utc": "2026-10-15T12:34:04+00:00",
+    "platform": "Linux-5.15.0-60-generic-x86_64-with-glibc2.35",
+    "baseline_process_memory_mb": -1.0,
+    "prover": {
+      "name": "EZKL",
+      "domain": "integer",
+      "version": "23.0.5",
+      "commit": "unspecified",
+      "version_cmd": "/usr/bin/python /640003/e2/code/calibration/ezkl_py.py --version"
+    },
+    "hardware": {
+      "cpu": "Intel(R) Xeon(R) Platinum 8480+",
+      "cpu_count": 224,
+      "system_memory_total_mb": 2063849.3,
+      "gpu": "NVIDIA H20",
+      "driver_version": "550.144.03",
+      "cuda_version": "12.4",
+      "cudnn_version": "90100",
+      "python": "3.12.9",
+      "torch": "2.5.1+cu124",
+      "numpy": "2.5.4"
+    },
+    "app_env_table": {
+      "GPU": "NVIDIA H20",
+      "System memory": "2015.5 GiB (container-visible)",
+      "Driver / CUDA / cuDNN": "550.144.03 / 12.4 / 90100",
+      "Python / PyTorch / NumPy": "3.12.9 / 2.5.1+cu124 / 2.5.4",
+      "Proof system, version, commit": "EZKL 23.0.5"
+    },
+    "app_env_missing": [],
+    "notes": [
+      "预热到热稳态是为了**几次运行之间可比**（H20 按持续负载供给，不是消费级卡降频）",
+      "所有内存数字为**增量**：驱动 + CUDA + Python 常驻是沉没成本，不计入",
+      "证明时间的口径是**子进程峰值 RSS**：EZKL 的 prove 是独立进程，主进程的 WorkingSet 量不到它",
+      "训练与证明须用任务队列串行化，避免 OOM 被误读为电路不可行"
+    ],
+    "ezkl_flag_check": {
+      "ezkl_argv": [
+        "/usr/bin/python",
+        "/640003/e2/code/calibration/ezkl_py.py"
+      ],
+      "binary": {
+        "argv0": "/usr/bin/python",
+        "on_path": "/usr/bin/python",
+        "kind": "present",
+        "answered": true,
+        "probes_timed_out": 0
+      },
+      "version": "23.0.5",
+      "ok": true,
+      "resolved": {
+        "gen-settings": [
+          "gen-settings",
+          "--model",
+          "{onnx}",
+          "--output",
+          "{settings}"
+        ],
+        "calibrate-settings": [
+          "calibrate-settings",
+          "--model",
+          "{onnx}",
+          "--data",
+          "{input}",
+          "--settings",
+          "{settings}",
+          "--target",
+          "resources"
+        ],
+        "compile-circuit": [
+          "compile-circuit",
+          "--model",
+          "{onnx}",
+          "--settings-path",
+          "{settings}",
+          "--compiled-circuit",
+          "{compiled}"
+        ],
+        "get-srs": [
+          "get-srs",
+          "--settings-path",
+          "{settings}",
+          "--srs-path",
+          "{srs}"
+        ],
+        "setup": [
+          "setup",
+          "--model",
+          "{compiled}",
+          "--vk-path",
+          "{vk}",
+          "--pk-path",
+          "{pk}",
+          "--srs-path",
+          "{srs}"
+        ],
+        "gen-witness": [
+          "gen-witness",
+          "--data",
+          "{input}",
+          "--model",
+          "{compiled}",
+          "--output",
+          "{witness}"
+        ],
+        "prove": [
+          "prove",
+          "--witness",
+          "{witness}",
+          "--model",
+          "{compiled}",
+          "--pk-path",
+          "{pk}",
+          "--proof-path",
+          "{proof}",
+          "--srs-path",
+          "{srs}"
+        ],
+        "verify": [
+          "verify",
+          "--proof-path",
+          "{proof}",
+          "--settings-path",
+          "{settings}",
+          "--vk-path",
+          "{vk}",
+          "--srs-path",
+          "{srs}"
+        ]
+      },
+      "errors": [],
+      "help_available": {
+        "gen-settings": true,
+        "calibrate-settings": true,
+        "compile-circuit": true,
+        "compile-model": false,
+        "get-srs": true,
+        "gen-params": false,
+        "setup": true,
+        "gen-witness": true,
+        "prove": true,
+        "verify": true
+      }
+    },
+    "source_tag": "measured"
+  },
+  "source": "measured",
+  "coeff": 1.5,
+  "warmup_rounds_max": 24,
+  "warmups": [
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 9.8%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 12.1%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 6.4%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 7.2%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 10.5%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 3.2%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 7.8%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 7.3%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 7.2%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 3.3%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 15.5%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 8.5%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 3.0%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 9.8%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 4.2%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 11.4%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 7.8%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 5.7%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 8.7%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 9.1%",
+    "稳态，预热 12 轮，最终 4 次耗时离散度 2.5%",
+    "稳态，预热 21 轮，最终 4 次耗时离散度 2.3%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 4.4%",
+    "未收敛，预热 24 轮，最终 4 次耗时离散度 8.3%"
+  ],
+  "specs": [
+    {
+      "model": "LogReg 784-10",
+      "macs": 7840,
+      "m": 32,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 32768,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/logreg.onnx",
+      "input_json": "/640003/e2/code/calibration/models/logreg_input.json"
+    },
+    {
+      "model": "LogReg 784-10",
+      "macs": 7840,
+      "m": 32,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 32768,
+      "n_blocks": 4,
+      "onnx": "/640003/e2/code/calibration/models/logreg.onnx",
+      "input_json": "/640003/e2/code/calibration/models/logreg_input.json"
+    },
+    {
+      "model": "LogReg 784-10",
+      "macs": 7840,
+      "m": 64,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 32768,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/logreg.onnx",
+      "input_json": "/640003/e2/code/calibration/models/logreg_input.json"
+    },
+    {
+      "model": "LogReg 784-10",
+      "macs": 7840,
+      "m": 64,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 32768,
+      "n_blocks": 8,
+      "onnx": "/640003/e2/code/calibration/models/logreg.onnx",
+      "input_json": "/640003/e2/code/calibration/models/logreg_input.json"
+    },
+    {
+      "model": "LogReg 784-10",
+      "macs": 7840,
+      "m": 128,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 32768,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/logreg.onnx",
+      "input_json": "/640003/e2/code/calibration/models/logreg_input.json"
+    },
+    {
+      "model": "LogReg 784-10",
+      "macs": 7840,
+      "m": 128,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 32768,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 32768,
+      "n_blocks": 16,
+      "onnx": "/640003/e2/code/calibration/models/logreg.onnx",
+      "input_json": "/640003/e2/code/calibration/models/logreg_input.json"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "macs": 101632,
+      "m": 32,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 65536,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/mlp2.onnx",
+      "input_json": "/640003/e2/code/calibration/models/mlp2_input.json"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "macs": 101632,
+      "m": 32,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 65536,
+      "n_blocks": 4,
+      "onnx": "/640003/e2/code/calibration/models/mlp2.onnx",
+      "input_json": "/640003/e2/code/calibration/models/mlp2_input.json"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "macs": 101632,
+      "m": 64,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 65536,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/mlp2.onnx",
+      "input_json": "/640003/e2/code/calibration/models/mlp2_input.json"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "macs": 101632,
+      "m": 64,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 65536,
+      "n_blocks": 8,
+      "onnx": "/640003/e2/code/calibration/models/mlp2.onnx",
+      "input_json": "/640003/e2/code/calibration/models/mlp2_input.json"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "macs": 101632,
+      "m": 128,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 65536,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/mlp2.onnx",
+      "input_json": "/640003/e2/code/calibration/models/mlp2_input.json"
+    },
+    {
+      "model": "MLP-2 784-128-10",
+      "macs": 101632,
+      "m": 128,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 65536,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 65536,
+      "n_blocks": 16,
+      "onnx": "/640003/e2/code/calibration/models/mlp2.onnx",
+      "input_json": "/640003/e2/code/calibration/models/mlp2_input.json"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "macs": 416520,
+      "m": 32,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 524288,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/lenet.onnx",
+      "input_json": "/640003/e2/code/calibration/models/lenet_input.json"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "macs": 416520,
+      "m": 32,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 524288,
+      "n_blocks": 4,
+      "onnx": "/640003/e2/code/calibration/models/lenet.onnx",
+      "input_json": "/640003/e2/code/calibration/models/lenet_input.json"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "macs": 416520,
+      "m": 64,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 524288,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/lenet.onnx",
+      "input_json": "/640003/e2/code/calibration/models/lenet_input.json"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "macs": 416520,
+      "m": 64,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 524288,
+      "n_blocks": 8,
+      "onnx": "/640003/e2/code/calibration/models/lenet.onnx",
+      "input_json": "/640003/e2/code/calibration/models/lenet_input.json"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "macs": 416520,
+      "m": 128,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 524288,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/lenet.onnx",
+      "input_json": "/640003/e2/code/calibration/models/lenet_input.json"
+    },
+    {
+      "model": "LeNet (32x32)",
+      "macs": 416520,
+      "m": 128,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 524288,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 524288,
+      "n_blocks": 16,
+      "onnx": "/640003/e2/code/calibration/models/lenet.onnx",
+      "input_json": "/640003/e2/code/calibration/models/lenet_input.json"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "macs": 1213504,
+      "m": 32,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 2097152,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/cnn3.onnx",
+      "input_json": "/640003/e2/code/calibration/models/cnn3_input.json"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "macs": 1213504,
+      "m": 32,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 2097152,
+      "n_blocks": 4,
+      "onnx": "/640003/e2/code/calibration/models/cnn3.onnx",
+      "input_json": "/640003/e2/code/calibration/models/cnn3_input.json"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "macs": 1213504,
+      "m": 64,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 2097152,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/cnn3.onnx",
+      "input_json": "/640003/e2/code/calibration/models/cnn3_input.json"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "macs": 1213504,
+      "m": 64,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 2097152,
+      "n_blocks": 8,
+      "onnx": "/640003/e2/code/calibration/models/cnn3.onnx",
+      "input_json": "/640003/e2/code/calibration/models/cnn3_input.json"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "macs": 1213504,
+      "m": 128,
+      "s": null,
+      "coeff": 1.5,
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 2097152,
+      "n_blocks": 1,
+      "onnx": "/640003/e2/code/calibration/models/cnn3.onnx",
+      "input_json": "/640003/e2/code/calibration/models/cnn3_input.json"
+    },
+    {
+      "model": "CNN-3conv (32x32)",
+      "macs": 1213504,
+      "m": 128,
+      "s": 8,
+      "coeff": 1.5,
+      "constraints": 2097152,
+      "constraints_source": "measured (2^logrows)",
+      "measured_rows": 2097152,
+      "n_blocks": 16,
+      "onnx": "/640003/e2/code/calibration/models/cnn3.onnx",
+      "input_json": "/640003/e2/code/calibration/models/cnn3_input.json"
+    }
+  ],
+  "results": [
+    {
+      "ok": true,
+      "seconds": 1.3149779150262475,
+      "ram_increment_mb": 405.25390625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        1.2765756212174892,
+        1.2964666597545147,
+        1.3389430902898312,
+        1.3149779150262475
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 1.3357121562585235,
+      "ram_increment_mb": 396.09375,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        1.4195356834679842,
+        1.3278573770076036,
+        1.2827989058569074,
+        1.3357121562585235
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 1.389486369676888,
+      "ram_increment_mb": 402.6875,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        1.255364427343011,
+        1.3960303207859397,
+        1.3144563045352697,
+        1.389486369676888
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 1.3536310913041234,
+      "ram_increment_mb": 401.23828125,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        1.252095744945109,
+        1.4117878340184689,
+        1.3536310913041234,
+        1.3138477327302098
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 1.4008555309846997,
+      "ram_increment_mb": 407.82421875,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        1.3944899681955576,
+        1.3099800627678633,
+        1.4008555309846997,
+        1.4214728232473135
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 1.4143420811742544,
+      "ram_increment_mb": 399.62890625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        1.4662000862881541,
+        1.4143420811742544,
+        1.4057034878060222,
+        1.3171715326607227
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 2.6853238474577665,
+      "ram_increment_mb": 800.50390625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        2.685296912677586,
+        2.6853238474577665,
+        2.6458506332710385,
+        2.7821230199187994
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 2.7736461982131004,
+      "ram_increment_mb": 798.6640625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        2.796902566216886,
+        2.6656098188832402,
+        2.7736461982131004,
+        2.6313976496458054
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 2.8167029907926917,
+      "ram_increment_mb": 791.16015625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        2.884715703316033,
+        2.8167029907926917,
+        2.666177795268595,
+        2.6555988136678934
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 2.697792395018041,
+      "ram_increment_mb": 794.44140625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        2.697792395018041,
+        2.6251824954524636,
+        2.968285581097007,
+        2.643918282352388
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 2.747964883223176,
+      "ram_increment_mb": 788.453125,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        2.747964883223176,
+        2.7306634839624166,
+        2.7771116010844707,
+        2.7093241158872843
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 2.757282699458301,
+      "ram_increment_mb": 785.6640625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        2.847331354394555,
+        2.6960941003635526,
+        2.757282699458301,
+        2.6612069848924875
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 23.26354471873492,
+      "ram_increment_mb": 5312.98828125,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        23.970423334278166,
+        23.26354471873492,
+        21.411569041199982,
+        21.821333658881485
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 23.13019667007029,
+      "ram_increment_mb": 5272.40625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        21.3929115626961,
+        23.783536274917424,
+        22.06929598376155,
+        23.13019667007029
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 24.1181835308671,
+      "ram_increment_mb": 5347.2265625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        24.649980975314975,
+        23.767767217941582,
+        24.1181835308671,
+        20.654428559355438
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 22.411012759432197,
+      "ram_increment_mb": 5400.48828125,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        21.972716297023,
+        22.64213542174548,
+        20.971617358736694,
+        22.411012759432197
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 20.721396568231285,
+      "ram_increment_mb": 5309.078125,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        20.721396568231285,
+        21.173208482563496,
+        20.040539289824665,
+        20.647828640416265
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 21.523933483287692,
+      "ram_increment_mb": 5259.19140625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        21.523933483287692,
+        21.566154333762825,
+        19.927758467383683,
+        20.47160316631198
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 74.73514830227941,
+      "ram_increment_mb": 20500.62890625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        75.63538994267583,
+        73.20845668204129,
+        74.2980376323685,
+        74.73514830227941
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 76.64058692008257,
+      "ram_increment_mb": 20499.4921875,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        73.49399618338794,
+        76.83875761833042,
+        73.1390686891973,
+        76.64058692008257
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 77.7498845923692,
+      "ram_increment_mb": 20501.67578125,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        71.35046387743205,
+        80.51483334973454,
+        77.7498845923692,
+        74.46486739162356
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 75.28177037462592,
+      "ram_increment_mb": 19980.34765625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        71.35042884666473,
+        73.70697218179703,
+        75.28177037462592,
+        76.5013919910416
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 76.74349159095436,
+      "ram_increment_mb": 20248.69140625,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        71.74291972722858,
+        72.90316760260612,
+        76.74349159095436,
+        80.491834057495
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    },
+    {
+      "ok": true,
+      "seconds": 74.14248052425683,
+      "ram_increment_mb": 20493.7421875,
+      "vram_increment_mb": 0.0,
+      "samples": [
+        73.59103104285896,
+        75.00004759337753,
+        74.14248052425683,
+        73.97203056886792
+      ],
+      "note": "ok; verify=pass; 内存口径=子进程峰值 RSS",
+      "measured": true
+    }
+  ],
+  "step_timings": {
+    "/usr/bin/python /640003/e2/code/calibration/ezkl_py.py": 1.7102667689323425
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "error": "No module named 'torch'",
+  "text": "=== fp64_domain_check ===\ntorch 不可用：No module named 'torch'\n\nVERDICT: NA\n  ⇒ 环境里没有 torch ⇒ **NA 不是 PASS**。\n     H20 上用的是平台自带的 torch（2.5.1+cu124），请用 `$E2_PYTHON` 跑。",
+  "tool": "fp64_domain_check",
+  "verdict_hardware": "NA",
+  "verdict_reason": "no torch"
+}

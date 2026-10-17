@@ -1,0 +1,18 @@
+# Reproducibility artifact — combined dependencies
+#
+# Split by which experiment needs what. A clean CPU environment with only
+# the E2 block is enough to reproduce E1/E1b/E2/E3(synthetic)/E6 and to
+# regenerate every table; the calibration block is only needed for the
+# proving-cost (EZKL) measurements in the appendix.
+
+# ---- E1 / E1b / E2 / E3 / E4 / E5 / E6 (all experiment code) ----
+# E2 itself uses only torch + stdlib; numpy is a transitive dep of torchvision.
+torch>=2.0            # measured 2.6.0+cpu on the CPU path; on GPU use a +cu build
+torchvision>=0.15     # only for CIFAR-10/MNIST loads; --dataset synthetic needs neither
+numpy
+
+# ---- Calibration (proving cost, FP64 domain check, EZKL pipeline) ----
+# Only needed to re-run code/calibration/* and reproduce the appendix cost table.
+onnx
+onnxruntime
+ezkl>=21.0.0          # measured with EZKL 23.0.5; the prover runs on CPU

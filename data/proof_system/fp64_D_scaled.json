@@ -1,0 +1,55 @@
+{
+  "cuda_available": false,
+  "float_probes": {
+    "fp32": {
+      "gflops": 331.207558425981,
+      "n": 1024,
+      "seconds": 0.006483800243586302
+    },
+    "fp64": {
+      "gflops": 170.88276027304818,
+      "n": 1024,
+      "seconds": 0.01256699999794364
+    }
+  },
+  "fp64_over_fp32_time_ratio": 1.9382151710140618,
+  "fp64_worst_case_penalty": {
+    "SNARK/PLONK/Groth16 (EZKL 属这类)": 1.77196657837768,
+    "STARK/FRI/Plonky3 (SP1 属这类)": 1.7719665783776803
+  },
+  "int_probes": {
+    "int32": {
+      "gops": 2.044805514641741,
+      "overflow_check": "PASS",
+      "seconds": 0.0003845999017357826
+    },
+    "int64": {
+      "gops": 0.952327438188475,
+      "overflow_check": "PASS",
+      "seconds": 0.0008258000016212463
+    }
+  },
+  "min_probe_seconds": 0.005,
+  "op_mix": {
+    "SNARK/PLONK/Groth16 (EZKL 属这类)": {
+      "msm": 0.7,
+      "ntt": 0.2,
+      "other": 0.1
+    },
+    "STARK/FRI/Plonky3 (SP1 属这类)": {
+      "msm": 0.05,
+      "ntt": 0.85,
+      "other": 0.1
+    }
+  },
+  "ratio_resolved": true,
+  "reps": 2,
+  "size": 512,
+  "size_used": 1024,
+  "text": "=== fp64_domain_check（硬件侧：H-FP64）===\ntorch           : 2.6.0+cpu\nCUDA 可用        : False\ndevice          : CPU（⇒ 硬性判据只能判 NA，不要把它当 PASS）\n\n--- 浮点吞吐：边长自动升到单次 ≥ 0.005 s（从 512 起，上限 8192）---\n  边长   512 : fp32 0.0008 s  →  349.9 GFLOP/s   ⇒ 太短，翻倍重试\n  边长  1024 : fp32 0.0065 s  →  331.2 GFLOP/s\n  边长  1024 : fp64 0.0126 s  →  170.9 GFLOP/s\n\n★ fp64/fp32 **时间比** = 1.9×（边长 1024）   （判据阈值 ≥ 20× ⇒ H-FP64 不成立）\n\n--- 整数 multiply-add 吞吐代理（不是 Montgomery、不是 NTT）---\nint32: 0.0004 s  →  2.04 GOP/s   溢出核对 PASS\nint64: 0.0008 s  →  0.95 GOP/s   溢出核对 PASS\n\n--- 若热核为 FP64，按候选声明的运算配比，端到端代价 ---\nSNARK/PLONK/Groth16 (EZKL 属这类)     热核占比 90% ⇒ 端到端慢 1.77×\nSTARK/FRI/Plonky3 (SP1 属这类)        热核占比 90% ⇒ 端到端慢 1.77×\n\n⇒ 若实测表明热核**是整数域**（见 static_domain_audit.py），上面的代价**不成立**，应为 1.00×。\n\nVERDICT (硬件侧 H-FP64): NA   [无 CUDA]\n  ⇒ **NA 不是 PASS**：这只说明本工具**没能**给出结论。\n     没有 CUDA —— 只是代码路径跑通了；真实数值请在 H20 的**正常终端**跑\n     （★ 执行沙箱里的计时一概不可信）。",
+  "threshold": 20.0,
+  "tool": "fp64_domain_check",
+  "torch": "2.6.0+cpu",
+  "verdict_hardware": "NA",
+  "verdict_reason": "无 CUDA"
+}
